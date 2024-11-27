@@ -1,0 +1,4 @@
+type = "module"
+name = "mlclogin"
+name_zh = "牧灵云登录模块"
+version = "0.1.4"

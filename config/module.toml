@@ -1,0 +1,4 @@
+[dependencies.mlcbase]
+name = "mlcbase"
+name_zh = "牧灵云基础依赖库"
+min_version = "1.2.5"

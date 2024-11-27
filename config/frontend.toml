@@ -1,0 +1,16 @@
+language = "zh_CN"
+default_language = "en_US"
+supported_languages = ["zh_CN", "en_US"]
+centered_window = true
+
+[login]
+fixed_window = true
+window_width = 450
+window_height = 300
+save_password = false
+
+[signup]
+window_width = 450
+window_height = 480
+avatar_width = 128
+avatar_height = 128

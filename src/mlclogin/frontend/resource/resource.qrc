@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/login">
+        <file>image/logo.png</file>
+        <file>translation/zh_CN.qm</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,90 @@
+timezone = "Asia/Shanghai"
+ping_seconds = 30  # cannot less than 10 (seconds)
+user_table_name = "user"
+password_hash_method = "SHA-512"  # MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512
+user_agreement_url = "https://www.mulingcloud.com"
+button_click_interval = 3  # seconds
+auto_clear_cache = true
+
+
+## -------------------------------------------------------------------
+## ------------------------ database settings ------------------------
+## -------------------------------------------------------------------
+[database]
+backend = "mysql"    # mysql or sqlite
+name = "mulingcloud"  # only be used when backend is mysql
+
+[database.connect]
+method = "direct"
+need_ping = true
+host = "127.0.0.1"
+port = 3306
+username = "root"
+password = "xxxxx"
+charset = "utf8"
+
+[database.tables]
+user = [
+    {name="id", dtype="int(11)", not_null=true, primary_key=true, auto_increment=true},
+    {name="username", dtype="varchar(255)", not_null=true},
+    {name="password", dtype="varchar(1024)", not_null=true},
+    {name="enable", dtype="int(1)", not_null=true},
+    {name="authority", dtype="varchar(255)", not_null=true},
+    {name="email", dtype="varchar(255)", not_null=true},
+    {name="signup_time", dtype="datetime"},
+    {name="last_login_time", dtype="datetime"},
+    {name="access_times", dtype="int(11)", not_null=true},
+    {name="login_failed_times", dtype="int(11)", not_null=true},
+    {name="last_login_failed_time", dtype="datetime"},
+    {name="2FA", dtype="varchar(255)"},
+    {name="avatar", dtype="int(1)", not_null=true}
+]
+
+
+## -------------------------------------------------------------------
+## ------------------------- email settings --------------------------
+## -------------------------------------------------------------------
+[email]
+backend = "smtp"  # only support smtp
+sender_name = "YourName"
+
+[email.connect]
+method = "direct"
+need_ping = true
+host = "smtp.example.com"
+port  = 465
+address = "example@example.com"
+password = "password"
+
+## -------------------------------------------------------------------
+## ------------------------- remote settings -------------------------
+## -------------------------------------------------------------------
+[sftp.connect]
+method = "direct"
+need_ping = true
+host = "example.com"
+port = 22
+user = "example"
+password = "password"
+remote_root = "example_dir/"
+remote_platform = "linux"
+
+
+## -------------------------------------------------------------------
+## ------------------------- login settings --------------------------
+## -------------------------------------------------------------------
+[login]
+max_failed_times = 5
+lock_time = 1800  # seconds
+enable_2FA = true
+
+
+## -------------------------------------------------------------------
+## ------------------------- signup settings -------------------------
+## -------------------------------------------------------------------
+[signup]
+email_verify_code_digits = 6
+email_verify_code_timeout = 600
+send_email_interval = 60  # the interval (in seconds) between two consecutive email sending
+avatar_size = [512, 512]
+avatar_suffix = [".png", ".jpg", ".bmp"]

@@ -1,0 +1,11 @@
+# directories
+.vscode/
+**/__pycache__/
+node_modules/
+log/
+cache/
+
+# files
+test.*
+package*
+.all-contributorsrc
